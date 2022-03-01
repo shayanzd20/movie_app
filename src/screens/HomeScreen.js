@@ -75,18 +75,31 @@ const HomeScreen = ({ route, navigation }) => {
 			</View>
 		) : (
 			movies.movies.length !== 0 && (
-				<TouchableOpacity
-					style={{ marginVertical: 10, alignItems: 'center' }}
-					activeOpacity={0.5}
-					onPress={() => handleLoadMore()}>
-					<Text
-						style={[
-							styles.headerText,
-							{ fontSize: 28, fontFamily: FONTS.REGULAR },
-						]}>
-						Load More
-					</Text>
-				</TouchableOpacity>
+				<View
+					style={{
+						alignItems: 'center',
+						paddingBottom: 10,
+						marginBottom: 130,
+						paddingTop: 10,
+					}}>
+					<TouchableOpacity
+						style={{
+							alignItems: 'center',
+							padding: 10,
+							borderWidth: 1,
+							borderRadius: 25,
+						}}
+						activeOpacity={0.5}
+						onPress={() => handleLoadMore()}>
+						<Text
+							style={[
+								styles.headerText,
+								{ fontSize: 28, fontFamily: FONTS.REGULAR },
+							]}>
+							Load More
+						</Text>
+					</TouchableOpacity>
+				</View>
 			)
 		);
 	};
