@@ -114,35 +114,31 @@ const HomeScreen = ({ route, navigation }) => {
 			/>
 			<View>
 				{movies?.movies.length !== 0 && (
-					<SafeAreaView style={{ flex: 1 }}>
-						<FlatList
-							data={movies.movies}
-							vertical
-							showsHorizontalScrollIndicator={false}
-							keyExtractor={(item) => item.imdbID.toString()}
-							ItemSeparatorComponent={() => (
-								<ItemSeparator width={20} />
-							)}
-							ListHeaderComponent={() => (
-								<ItemSeparator width={20} />
-							)}
-							ListFooterComponent={renderFooter}
-							renderItem={({ item }) => (
-								<MovieCard
-									title={item.Title}
-									poster={item.Poster}
-									year={item.Year}
-									type={item.Type}
-									heartLess={false}
-									onPress={() =>
-										navigation.navigate('movie', {
-											movieId: item.imdbID,
-										})
-									}
-								/>
-							)}
-						/>
-					</SafeAreaView>
+					<FlatList
+						data={movies.movies}
+						vertical
+						showsHorizontalScrollIndicator={false}
+						keyExtractor={(item) => item.imdbID.toString()}
+						ItemSeparatorComponent={() => (
+							<ItemSeparator width={20} />
+						)}
+						ListHeaderComponent={() => <ItemSeparator width={20} />}
+						ListFooterComponent={renderFooter}
+						renderItem={({ item }) => (
+							<MovieCard
+								title={item.Title}
+								poster={item.Poster}
+								year={item.Year}
+								type={item.Type}
+								heartLess={false}
+								onPress={() =>
+									navigation.navigate('movie', {
+										movieId: item.imdbID,
+									})
+								}
+							/>
+						)}
+					/>
 				)}
 			</View>
 		</View>
